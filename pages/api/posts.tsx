@@ -17,6 +17,13 @@ const handler: NextApiHandler = (req, res) => {
 
 const readPostsInfo = () => {
   const dirPathToRead = path.join(process.cwd(), "posts");
-  return fs.readdirSync(dirPathToRead);
+  const dirs = fs.readdirSync(dirPathToRead);
+  dirs.map((filename) => {
+    const filePathToRead = path.join(process.cwd(), "posts/" + filename);
+    const fileContent = fs.readFileSync(filePathToRead, { encoding: "utf-8" });
+    console.log(fileContent);
+  });
+
+  return "";
 };
 export default handler;
