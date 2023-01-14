@@ -1,16 +1,22 @@
 import { FC } from "react";
+import Link from "next/link";
 
 interface Props {
   title: String;
   desc: String;
+  slug: string;
 }
 
-const BlogCard: FC<Props> = ({ title, desc }): JSX.Element => {
+const BlogCard: FC<Props> = ({ title, desc, slug }): JSX.Element => {
   return (
-    <div className="bg-green-100 p-2 rounded">
-      <h1 className="text-gray-900 text-3xl font-semibold">{title}</h1>
-      <p className="text-gray-500">{desc}</p>
-    </div>
+    <Link href={"/blogs/" + slug}>
+      <a className="block">
+        <div className="bg-green-100 p-2 rounded cursor-pointer">
+          <h1 className="text-gray-900 text-3xl font-semibold">{title}</h1>
+          <p className="text-gray-500">{desc}</p>
+        </div>
+      </a>
+    </Link>
   );
 };
 
