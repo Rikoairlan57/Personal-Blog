@@ -1,7 +1,5 @@
-import React from "react";
-
-const NoteFound = () => {
-  return <div>404 file not found</div>;
+const NotFound = () => {
+  return <div>404 Not Found</div>;
 };
 
-export default NoteFound;
+export default NotFound;
