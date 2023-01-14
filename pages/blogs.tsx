@@ -1,5 +1,5 @@
 import { InferGetStaticPropsType, NextPage } from "next";
-import BlogCard from "../component/BlogCard";
+import BlogCard from "../components/BlogCard";
 
 interface PostApiResponse {
   postInfo: {

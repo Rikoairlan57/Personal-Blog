@@ -27,4 +27,5 @@ const readPostsInfo = () => {
 
   return data;
 };
+
 export default handler;
