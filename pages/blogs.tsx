@@ -1,22 +1,22 @@
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import BlogCard from "../component/BlogCard";
 import { useEffect, useState } from "react";
 
-interface Props {}
+export const getStaticProps: GetStaticProps = async () => {
+  const res = await fetch("http://localhost:3000/api/posts").then((data) =>
+    data.json()
+  );
 
-const Blogs: NextPage<Props> = () => {
-  const [posts, setPosts] = useState<
-    { title: string; slug: string; meta: string }[]
-  >([]);
-
-  const fetchPosts = async () => {
-    const res = await fetch("/api/posts").then((data) => data.json());
-    setPosts(res.postInfo);
+  return {
+    props: { posts: res.postInfo },
   };
+};
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+interface Props {
+  title: String;
+}
+
+const Blogs: NextPage<Props> = ({ posts }) => {
   return (
     <div className="max-w-3xl mx-auto p-5 space-y-5">
       {posts.map((post) => (
