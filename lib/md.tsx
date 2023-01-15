@@ -1,5 +1,8 @@
 import { join } from "path";
 import fs from "fs";
+import matter from "gray-matter";
+import { Blog } from "../interfaces/Blog";
+import { MarkdownItem } from "../interfaces/Markdown";
 
 const getDir = (path: string) => join(process.cwd(), path);
 
@@ -12,13 +15,16 @@ const getFileNames = (dir: string): string[] => {
 const getBlogFileNames = () => {
   return getFileNames(BLOG_DIR);
 };
-const getItemInPath = (filePath: string): string => {
+
+const getItemInPath = (filePath: string): MarkdownItem => {
   const fileContent = fs.readFileSync(filePath, "utf8");
-  return fileContent;
+  const { data, content } = matter(fileContent);
+  return { ...data, content } as MarkdownItem;
 };
 
-const getBlog = (fileName: string) => {
-  const blog = getItemInPath(join(BLOG_DIR, fileName));
+const getBlog = (fileName: string): Blog => {
+  const blog = getItemInPath(join(BLOG_DIR, fileName)) as Blog;
   return blog;
 };
-export { getFileNames, getItemInPath, getBlogFileNames, getBlog, getDir };
+
+export { getBlogFileNames, getBlog };
