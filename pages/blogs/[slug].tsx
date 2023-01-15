@@ -1,10 +1,10 @@
 import { NextPage } from "next/types";
-import { BaseLayout } from "../../components/layouts";
+import { PageLayout } from "../../components/layouts";
 
 const BlogDetail: NextPage = () => {
   return (
     <>
-      <BaseLayout>
+      <PageLayout>
         <div className="w-2/3 m-auto">
           <div className="blog-detail-header">
             <div className="flex flex-row justify-between mb-2">
@@ -53,7 +53,7 @@ const BlogDetail: NextPage = () => {
             Content Here
           </article>
         </div>
-      </BaseLayout>
+      </PageLayout>
     </>
   );
 };
