@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "ES6",
+    "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -19,7 +19,7 @@
       "@components/*": ["components/*"],
       "@lib/*": ["lib/*"],
       "@interfaces/*": ["interfaces/*"],
-      "@content/*": ["content/*"]
+      "@content/*": ["content/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

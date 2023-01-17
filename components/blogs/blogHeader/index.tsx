@@ -1,13 +1,13 @@
-import React from "react";
 import { FunctionComponent } from "react";
 import Image from "next/image";
 import { Blog } from "@interfaces/Blog";
 
 type Props = {
-  blog: Blog;
-};
+  blog: Blog
+}
 
-const BlogHeader: FunctionComponent<Props> = ({ blog }) => {
+const BlogHeader: FunctionComponent<Props> = ({blog}) => {
+
   return (
     <div className="blog-detail-header">
       <div className="flex flex-row justify-between mb-2">
@@ -15,14 +15,13 @@ const BlogHeader: FunctionComponent<Props> = ({ blog }) => {
           <div className="flex-shrink-0">
             <a href="#">
               <span className="sr-only">{blog.author}</span>
-              <div className="relative h-10 w-10 !mb-0">
-                <Image
+              <div className="relative h-10 w-10 !mb-0" >
+                <Image 
                   priority
                   layout="fill"
                   objectFit="cover"
                   className="rounded-full"
-                  src={blog.authorImage}
-                  alt=""
+                  src={blog.authorImage} alt="" 
                 />
               </div>
             </a>
@@ -38,23 +37,21 @@ const BlogHeader: FunctionComponent<Props> = ({ blog }) => {
             </div>
           </div>
         </div>
-        <div className="flex self-end">{/* Social Links Here */}</div>
+        <div className="flex self-end">
+          {/* Social Links Here */}
+        </div>
       </div>
       <h1 className="font-bold text-4xl mb-1">{blog.title}</h1>
-      <h2 className="blog-detail-header-subtitle mb-2 text-xl text-gray-600">
-        {blog.description}
-      </h2>
+      <h2 className="blog-detail-header-subtitle mb-2 text-xl text-gray-600">{blog.description}</h2>
       <div className="h-96 bg-black mx-auto w-full relative">
         <Image
           priority
           layout="fill"
           objectFit="cover"
-          src={blog.coverImage}
-          alt=""
-        />
+          src={blog.coverImage} alt=""/>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default BlogHeader;

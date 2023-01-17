@@ -1,12 +1,14 @@
-import { Fragment } from "react";
+
+import { Fragment } from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import { Popover, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { navigation } from "./navigation";
-import { ContentSearch } from "../../search/inedx";
+import { Popover, Transition } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { navigation } from './navigation';
+import { ContentSearch } from '@components/search';
 
 const Navbar = () => {
+
   return (
     <>
       <svg
@@ -22,10 +24,7 @@ const Navbar = () => {
       {/* NAVIGATION START */}
       <Popover>
         <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
-          <nav
-            className="relative flex items-center justify-between sm:h-10 lg:justify-start"
-            aria-label="Global"
-          >
+          <nav className="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
             <div className="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
               <div className="flex w-full items-center justify-between md:w-auto">
                 <Link href="/">
@@ -97,7 +96,9 @@ const Navbar = () => {
               <div className="space-y-1 px-2 pt-2 pb-3">
                 {navigation.map((item) => (
                   <Link key={item.name} href={item.href}>
-                    <a className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">
+                    <a
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                    >
                       {item.name}
                     </a>
                   </Link>
@@ -118,7 +119,7 @@ const Navbar = () => {
       </Popover>
       {/* NAVIGATION END */}
     </>
-  );
-};
+  )
+}
 
 export default Navbar;
