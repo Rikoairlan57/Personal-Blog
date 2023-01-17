@@ -5,3 +5,7 @@ export interface Blog extends MarkdownItem {
   authorImage: string;
   author: string;
 }
+
+export interface SearchContent extends Partial<MarkdownItem> {
+  category: string;
+}
