@@ -1,6 +1,8 @@
-import searchIndex from "@content/search/index.json";
-import * as JsSearch from "js-search";
+
+
 import { SearchContent } from "@interfaces/Markdown";
+import * as JsSearch from "js-search";
+import { getLocalSearchIndex } from "./utils";
 
 class ContentIndexer {
   private static instance: ContentIndexer;
@@ -16,16 +18,16 @@ class ContentIndexer {
     this.buildIndex();
   }
 
-  public search(query: string): SearchContent {
+  public search(query: string): SearchContent[] {
     const results = this.searchEngine.search(query);
-    return results as SearchContent;
+    return results as SearchContent[];
   }
 
   private buildIndex() {
     this.searchEngine = new JsSearch.Search("slug");
     this.searchEngine.addIndex("title");
     this.searchEngine.addIndex("description");
-    this.searchEngine.addDocuments(searchIndex);
+    this.searchEngine.addDocuments(getLocalSearchIndex());
   }
 }
 
